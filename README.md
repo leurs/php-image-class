@@ -111,6 +111,115 @@ You can get the following information about an image:
 ?>
 ```
 
+## Manipulation
+
+You can use the following manipulation methods on an image:
+
+- Crop
+- Fit
+- Flip
+- Orientate
+- Resize
+- Rotate
+- Thumbnail
+- Watermark
+
+```php
+<?php
+  // crop an image
+  $image->crop($x1, $y1, $x2, $y2)
+  
+  // fit an image into a given maximum width and/or height
+  $image->fit($maxWidth, $maxHeight)
+  
+  // flip an image
+  // $direction can be 'horizontal', 'vertical' or 'both'
+  $image->flip($direction)
+  
+  // orientate an image given the exif data
+  $image->orientate()
+  
+  // resize an image
+  $image->resize($width, $height)
+  
+  // rotate an image
+  $image->rotate($angle, $backgroundColor)
+  
+  // create a thumbnail of an image
+  // $startingPoint can be 'top', 'right', 'bottom', 'left' or 'center'
+  $image->thumbnail($width, $height, $startingPoint)
+  
+  // add a watermark to an image
+  // $position can be 'top', 'right', 'bottom', 'left' or 'center'
+  // $opacity must be between 0 and 1
+  $image->watermark($watermark, $position, $xOffset, $yOffset, $opacity)
+?>
+```
+
+## Filters
+
+You can use the following filter methods on an image:
+
+- Blur
+- Brighten
+- Colorize
+- Contrast
+- Darken
+- Desaturate
+- Emboss
+- Invert
+- Opacity
+- Pixelate
+- Sepia
+- Sharpen
+- Sketch
+
+```php
+<?php
+  // add blur to an image
+  // $type can be 'gaussian' or 'selective'  
+  $image->blur($type, $rounds)
+  
+  // brighten an image
+  $image->brighten($percentage)
+  
+  // colorize an image
+  $image->colorize($color)
+  
+  // add contrast to an image
+  $image->contrast($percentage)
+  
+  // darken an image
+  $image->darken($percentage)
+  
+  // desaturate an image
+  $image->desaturate()
+  
+  // emboss an image
+  $image->emboss()
+  
+  // invert an image
+  $image->invert()
+  
+  // add opacity to an image
+  $image->opacity($percentage)
+  
+  // pixelate an image
+  $image->pixelate($size)
+  
+  // add sepia to an image
+  $image->sepia()
+  
+  // sharpen an image
+  $image->sharpen()
+  
+  // sketch an image
+  $image->sketch()
+?>
+```
+  
+## Drawing
+
 ## License
 
 Licensed under the [MIT License](https://opensource.org/licenses/MIT).

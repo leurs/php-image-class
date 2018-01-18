@@ -1,10 +1,11 @@
-# php-image-class
+# PHP Image Class
 
-<p>A PHP class to handle images.</p>
+A PHP class to handle images.
 
-<h2>Overview</h2>
+## Overview
 
-<pre><code>&lt;?php
+```php
+<?php
   // create a new instance
   $image = new Image('demo.jpg',100);
   
@@ -14,4 +15,10 @@
       ->sepia()
       ->save('demo.jpg')
       ->show();
-?&gt;</code></pre>
+?>
+```
+
+## Requirements
+
+- PHP 7.x
+- [GD Library](http://php.net/manual/en/book.image.php)

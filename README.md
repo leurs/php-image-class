@@ -111,7 +111,7 @@ You can get the following information about an image:
 ?>
 ```
 
-## Manipulation
+### Manipulation
 
 You can use the following manipulation methods on an image:
 
@@ -156,7 +156,7 @@ You can use the following manipulation methods on an image:
 ?>
 ```
 
-## Filters
+### Filters
 
 You can use the following filter methods on an image:
 
@@ -218,7 +218,42 @@ You can use the following filter methods on an image:
 ?>
 ```
   
-## Drawing
+### Drawing
+
+You can use the following drawing methods on an image:
+
+- Border
+- Canvas
+- Ellipse
+- Line
+- Polygon
+- Rectangle
+- Text
+
+```php
+<?php
+  // draw a border around an image
+  $image->border($color, $thickness)
+  
+  // draw a canvas
+  $image->canvas($width, $height, $backgroundColor, $mimeType, $outputQuality)
+  
+  // draw an ellipse on an image
+  $image->ellipse($x, $y, $width, $height, $color, $thickness)
+  
+  // draw a line on an image
+  $image->line($x1, $y1, $x2, $y2, $color, $thickness)
+  
+  // draw a polyon on an image
+  $image->polygon($vertices, $color, $thickness)
+  
+  // draw a rectangle on an image
+  $image->rectangle($x1, $y1, $x2, $y2, $color, $thickness)
+  
+  // add text to an image
+  $image->text($text, $size, $x, $y, $color)
+?>
+```
 
 ## License
 

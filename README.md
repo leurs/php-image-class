@@ -11,7 +11,7 @@ A PHP class to handle images.
   
 	// handle the image
 	$image
-		->crop(200,200)
+	->crop(200,200)
       	->sepia()
       	->save('demo.jpg')
       	->show();
@@ -61,7 +61,7 @@ You can add an image and output quality directly to the class instance or use se
 	$image = new Image();
   
 	$image
-		->setImage('demo.jpg')
+	->setImage('demo.jpg')
       	->setOutputQuality(100);
 ?>
 ```

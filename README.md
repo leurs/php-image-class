@@ -6,15 +6,15 @@ A PHP class to handle images.
 
 ```php
 <?php
-  // create a new instance
-  $image = new Image('demo.jpg',100);
+	// create a new instance
+	$image = new Image('demo.jpg',100);
   
-  // handle the image
-  $image
-      ->crop(200,200)
-      ->sepia()
-      ->save('demo.jpg')
-      ->show();
+	// handle the image
+	$image
+		->crop(200,200)
+      	->sepia()
+      	->save('demo.jpg')
+      	->show();
 ?>
 ```
 
@@ -54,15 +54,15 @@ You can add an image and output quality directly to the class instance or use se
 
 ```php
 <?php
-  // first method
-  $image = new Image('demo.jpg',100);
+	// first method
+	$image = new Image('demo.jpg',100);
   
-  // second method
-  $image = new Image();
+	// second method
+	$image = new Image();
   
-  $image
-      ->setImage('demo.jpg')
-      ->setOutputQuality(100);
+	$image
+		->setImage('demo.jpg')
+      	->setOutputQuality(100);
 ?>
 ```
 
@@ -72,17 +72,17 @@ You can save the image to the server, force a download of the image or just show
 
 ```php
 <?php
-  // create an instance
-  $image = new Image('demo.jpg',100);
+	// create an instance
+  	$image = new Image('demo.jpg',100);
   
-  // save the image to the server
+ 	// save the image to the server
 	$image->save('new.jpg');
   
-  // download the image to the computer
-  $image->download('new.jpg');
+  	// download the image to the computer
+  	$image->download('new.jpg');
   
-  // show the image on the screen
-  $image->show();
+  	// show the image on the screen
+  	$image->show();
 ?>
 ```
 

@@ -122,7 +122,7 @@
      
      $this->mimeTYpe = $info['mime'];
      
-     switch($this->mimeType) {
+     switch ($this->mimeType) {
        default:
          throw new Exception('Unsupported image type');
          break;
@@ -141,13 +141,136 @@
      
      return $this;
    }
+   
+  /**
+   * @access protected
+   */
+   protected function render()
+   {
+     switch ($this->mimeType) {
+       case 'image/gif':
+         $image = $this->renderGIF();
+         break;
+       case 'image/jpeg':
+         $image = $this->renderJPEG();
+         break;
+       case 'image/png':
+         $image = $this->renderPNG();
+         break;
+     }
+   }
+   
+  /**
+   * @access protected
+   */
+   protected function renderGIF
+   {
+      ob_start();
+      
+      imagesavealpha($this->outputImage, true);
+     
+      imagegif($this->outputImage, null);
+     
+      $image = ob_get_contents();
+     
+      ob_end_clean;
+     
+      return $image;
+   }
+
+  /**
+   * @access protected
+   */
+   protected function renderJPEG
+   {
+      ob_start();
+     
+      imageinterlace($this->outputImage, true);
+     
+      imagejpeg($this->outputImage, null, $this->outputQuality);
+     
+      $image = ob_get_contents();
+     
+      ob_end_clean;
+     
+      return $image;
+   }
+
+  /**
+   * @access protected
+   */
+   protected function renderPNG
+   {
+      ob_start();
+     
+      imagesavealpha($this->outputImage, true);
+     
+      imagepng($this->outputImage, null, round(9*$this->outputQuality/100));
+     
+      $image = ob_get_contents();
+     
+      ob_end_clean;
+     
+      return $image;
+   }
+   
+  /**
+   * @param string $filename
+   *
+   * @access public
+   */
+   public function save($filename)
+   {
+      $image = $this->render();
+     
+      if (!file_put_contents($filename,$image)) {
+          throw new Exception('Unable to write the image to the file');
+      }
+     
+      return $this;
+   }
+   
+  /**
+   * @param string $filename
+   *
+   * @access public
+   */   
+   public function download($filename)
+   {
+      $image = $this->render();
+     
+      header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+      header('Content-Description: File Transfer');
+      header('Content-Length: '.strlen($image));
+      header('Content-Transfer-Encoding: Binary');
+      header('Content-Type: application/octet-stream');
+      header('Content-Disposition: attachment; filename="'.$filename.'"');
+     
+      echo $image;
+     
+      return $this;
+   }
+   
+  /**
+   * @access public
+   */
+   public function show()
+   {
+      $image = $this->render();
+     
+      header('Content-Type: '.$this->mimeType);
+     
+      echo $image;
+     
+      return $this;
+   }
  
   /**
    * @access public
    */
-  public function __destruct()
-  {
-    imagedestroy($this->outputImage);
-  }
+   public function __destruct()
+   {
+     imagedestroy($this->outputImage);
+   }
  }
- ?>
+?>

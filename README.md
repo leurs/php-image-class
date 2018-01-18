@@ -75,7 +75,7 @@ You can save the image to the server, force a download of the image or just show
 	// create an instance
   	$image = new Image('demo.jpg',100);
   
- 	// save the image to the server
+	// save the image to the server
 	$image->save('new.jpg');
   
   	// download the image to the computer

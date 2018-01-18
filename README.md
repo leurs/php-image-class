@@ -6,15 +6,15 @@ A PHP class to handle images.
 
 ```php
 <?php
-	// create a new instance
-	$image = new Image('demo.jpg',100);
+  // create a new instance
+  $image = new Image('demo.jpg',100);
   
-	// handle the image
-	$image
-	->crop(200,200)
-      	->sepia()
-      	->save('demo.jpg')
-      	->show();
+  // handle the image
+  $image
+    ->crop(200,200)
+    ->sepia()
+    ->save('demo.jpg')
+    ->show();
 ?>
 ```
 

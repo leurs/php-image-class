@@ -1,3 +1,5 @@
+(This class is still under construction)
+
 # PHP Image Class
 
 ## Overview

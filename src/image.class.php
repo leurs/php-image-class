@@ -266,6 +266,78 @@
    }
  
   /**
+   * @return int
+   *
+   * @access public
+   */
+  public function getWidth()
+  {
+      return imagesx($this->outputImage);
+  }
+
+  /**
+   * @return int
+   *
+   * @access public
+   */
+  public function getHeight()
+  {
+      return imagesy($this->outputImage);
+  }
+  
+  /**
+   * @return int
+   *
+   * @access public
+   */
+  public function getAspectRatio()
+  {
+      return $this->getWidth()/$this->getHeight();
+  }
+
+  /**
+   * @return array
+   *
+   * @access public
+   */
+   public function getExifData()
+   {
+      if ($this->exif) {
+        return $this->exif;
+      }
+    
+      return false;
+   }
+
+  /**
+   * @return string
+   *
+   * @access public
+   */
+   public function getMimeType()
+  {
+      return $this->mimeType;
+  }
+   
+  /**
+   * @return string
+   *
+   * @access public
+   */
+   public function getOrientation()
+   {
+      if ($this->getWidth() > $this->getHeight()) {
+        return 'landscape';
+      }
+     
+      if ($this->getWidth() < $this->getHeight()) {
+        return 'portrait';
+      }
+     
+      return 'square';
+   }
+   
+  /**
    * @access public
    */
    public function __destruct()
